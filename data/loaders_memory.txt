@@ -1,0 +1,67 @@
+从内存中读取
+01-01 15:56:48.413 16219-16219/com.imzhiqiang.imageloaders D/MainActivity: Picasso----->onSuccess: 1.687239ms
+01-01 15:56:48.417 16219-16219/com.imzhiqiang.imageloaders D/MainActivity: Fresco----->onFinalImageSet: 3.307187ms
+01-01 15:56:48.424 16219-16219/com.imzhiqiang.imageloaders D/MainActivity: Glide----->onResourceReady: 7.2445829999999996ms
+01-01 15:56:48.526 16219-16219/com.imzhiqiang.imageloaders D/MainActivity: UIL----->onLoadingComplete:115.320572ms
+01-01 15:56:48.581 16219-16219/com.imzhiqiang.imageloaders D/MainActivity: Volley----->onSuccess: 168.634323ms
+
+01-01 16:00:20.970 16219-16219/com.imzhiqiang.imageloaders D/MainActivity: Picasso----->onSuccess: 0.7804169999999999ms
+01-01 16:00:20.971 16219-16219/com.imzhiqiang.imageloaders D/MainActivity: Fresco----->onFinalImageSet: 0.955156ms
+01-01 16:00:20.985 16219-16219/com.imzhiqiang.imageloaders D/MainActivity: Glide----->onResourceReady: 13.625052ms
+01-01 16:00:21.133 16219-16219/com.imzhiqiang.imageloaders D/MainActivity: UIL----->onLoadingComplete:164.95374999999999ms
+01-01 16:00:21.140 16219-16219/com.imzhiqiang.imageloaders D/MainActivity: Volley----->onSuccess: 170.165416ms
+
+01-01 16:03:34.209 22044-22044/com.imzhiqiang.imageloaders D/MainActivity: Picasso----->onSuccess: 0.8881249999999999ms
+01-01 16:03:34.211 22044-22044/com.imzhiqiang.imageloaders D/MainActivity: Fresco----->onFinalImageSet: 1.4717179999999999ms
+01-01 16:03:34.224 22044-22044/com.imzhiqiang.imageloaders D/MainActivity: Glide----->onResourceReady: 13.058905999999999ms
+01-01 16:03:34.356 22044-22044/com.imzhiqiang.imageloaders D/MainActivity: Volley----->onSuccess: 146.87802ms
+01-01 16:03:34.388 22044-22044/com.imzhiqiang.imageloaders D/MainActivity: UIL----->onLoadingComplete:180.103646ms
+
+01-01 16:04:01.277 22044-22044/com.imzhiqiang.imageloaders D/MainActivity: Picasso----->onSuccess: 1.080416ms
+01-01 16:04:01.279 22044-22044/com.imzhiqiang.imageloaders D/MainActivity: Fresco----->onFinalImageSet: 1.087604ms
+01-01 16:04:01.285 22044-22044/com.imzhiqiang.imageloaders D/MainActivity: Glide----->onResourceReady: 5.805155999999999ms
+01-01 16:04:01.410 22044-22044/com.imzhiqiang.imageloaders D/MainActivity: UIL----->onLoadingComplete:133.90552ms
+01-01 16:04:01.430 22044-22044/com.imzhiqiang.imageloaders D/MainActivity: Volley----->onSuccess: 153.337188ms
+
+01-01 16:07:24.294 28871-28871/com.imzhiqiang.imageloaders D/MainActivity: Picasso----->onSuccess: 1.3724999999999998ms
+01-01 16:07:24.298 28871-28871/com.imzhiqiang.imageloaders D/MainActivity: Fresco----->onFinalImageSet: 2.585989ms
+01-01 16:07:24.311 28871-28871/com.imzhiqiang.imageloaders D/MainActivity: Glide----->onResourceReady: 13.366406ms
+01-01 16:07:24.407 28871-28871/com.imzhiqiang.imageloaders D/MainActivity: UIL----->onLoadingComplete:114.77953099999999ms
+01-01 16:07:24.450 28871-28871/com.imzhiqiang.imageloaders D/MainActivity: Volley----->onSuccess: 155.255469ms
+
+01-01 17:01:41.319 12574-12574/com.imzhiqiang.imageloaders D/MainActivity: Picasso----->onSuccess: 0.338333ms
+01-01 17:01:41.325 12574-12574/com.imzhiqiang.imageloaders D/MainActivity: Fresco----->onFinalImageSet: 6.252968999999999ms
+01-01 17:01:41.383 12574-12574/com.imzhiqiang.imageloaders D/MainActivity: Glide----->onResourceReady: 63.598333ms
+01-01 17:01:41.391 12574-12574/com.imzhiqiang.imageloaders D/MainActivity: Volley----->onSuccess: 72.18432299999999ms
+01-01 17:01:41.458 12574-12574/com.imzhiqiang.imageloaders D/MainActivity: UIL----->onLoadingComplete:140.14583299999998ms
+01-01 17:01:41.575 12574-12574/com.imzhiqiang.imageloaders D/MainActivity: Volley----->onSuccess: 256.27187499999997ms
+
+01-01 17:02:21.636 12574-12574/com.imzhiqiang.imageloaders D/MainActivity: Picasso----->onSuccess: 0.798333ms
+01-01 17:02:21.638 12574-12574/com.imzhiqiang.imageloaders D/MainActivity: Fresco----->onFinalImageSet: 1.1342189999999999ms
+01-01 17:02:21.653 12574-12574/com.imzhiqiang.imageloaders D/MainActivity: Glide----->onResourceReady: 14.508229ms
+01-01 17:02:21.774 12574-12574/com.imzhiqiang.imageloaders D/MainActivity: Volley----->onSuccess: 137.281979ms
+01-01 17:02:21.810 12574-12574/com.imzhiqiang.imageloaders D/MainActivity: UIL----->onLoadingComplete:174.571249ms
+
+01-01 17:02:53.609 12574-12574/com.imzhiqiang.imageloaders D/MainActivity: Picasso----->onSuccess: 1.611719ms
+01-01 17:02:53.612 12574-12574/com.imzhiqiang.imageloaders D/MainActivity: Fresco----->onFinalImageSet: 1.520573ms
+01-01 17:02:53.623 12574-12574/com.imzhiqiang.imageloaders D/MainActivity: Glide----->onResourceReady: 10.223334ms
+01-01 17:02:53.730 12574-12574/com.imzhiqiang.imageloaders D/MainActivity: UIL----->onLoadingComplete:122.75177099999999ms
+01-01 17:02:53.766 12574-12574/com.imzhiqiang.imageloaders D/MainActivity: Volley----->onSuccess: 156.922135ms
+
+01-01 17:03:25.078 12574-12574/com.imzhiqiang.imageloaders D/MainActivity: Picasso----->onSuccess: 1.5884889999999998ms
+01-01 17:03:25.083 12574-12574/com.imzhiqiang.imageloaders D/MainActivity: Fresco----->onFinalImageSet: 2.405052ms
+01-01 17:03:25.088 12574-12574/com.imzhiqiang.imageloaders D/MainActivity: Glide----->onResourceReady: 4.650156ms
+01-01 17:03:25.189 12574-12574/com.imzhiqiang.imageloaders D/MainActivity: UIL----->onLoadingComplete:113.47650999999999ms
+01-01 17:03:25.261 12574-12574/com.imzhiqiang.imageloaders D/MainActivity: Volley----->onSuccess: 183.473906ms
+
+01-01 17:03:44.882 12574-12574/com.imzhiqiang.imageloaders D/MainActivity: Picasso----->onSuccess: 0.718073ms
+01-01 17:03:44.883 12574-12574/com.imzhiqiang.imageloaders D/MainActivity: Fresco----->onFinalImageSet: 0.9175ms
+01-01 17:03:44.894 12574-12574/com.imzhiqiang.imageloaders D/MainActivity: Glide----->onResourceReady: 10.599219ms
+01-01 17:03:45.007 12574-12574/com.imzhiqiang.imageloaders D/MainActivity: UIL----->onLoadingComplete:126.212813ms
+01-01 17:03:45.036 12574-12574/com.imzhiqiang.imageloaders D/MainActivity: Volley----->onSuccess: 154.1825ms
+
+01-01 17:04:27.053 12574-12574/com.imzhiqiang.imageloaders D/MainActivity: Picasso----->onSuccess: 0.692448ms
+01-01 17:04:27.054 12574-12574/com.imzhiqiang.imageloaders D/MainActivity: Fresco----->onFinalImageSet: 0.88276ms
+01-01 17:04:27.057 12574-12574/com.imzhiqiang.imageloaders D/MainActivity: Glide----->onResourceReady: 2.92151ms
+01-01 17:04:27.276 12574-12574/com.imzhiqiang.imageloaders D/MainActivity: UIL----->onLoadingComplete:224.03963499999998ms
+01-01 17:04:27.299 12574-12574/com.imzhiqiang.imageloaders D/MainActivity: Volley----->onSuccess: 245.95244799999998ms

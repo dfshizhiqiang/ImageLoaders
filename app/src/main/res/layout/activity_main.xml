@@ -13,24 +13,24 @@
             android:orientation="vertical">
             <ImageView
                 android:id="@+id/img_uil"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_width="100dp"
+                android:layout_height="100dp" />
             <ImageView
                 android:id="@+id/img_picasso"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp" />
+            <com.imzhiqiang.imageloaders.widget.VolleyImageView
                 android:id="@+id/img_volley"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp" />
+            <com.facebook.drawee.view.SimpleDraweeView
                 android:id="@+id/img_fresco"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_width="100dp"
+                android:layout_height="100dp" />
             <ImageView
                 android:id="@+id/img_glide"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_width="100dp"
+                android:layout_height="100dp" />
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
 </RelativeLayout>
