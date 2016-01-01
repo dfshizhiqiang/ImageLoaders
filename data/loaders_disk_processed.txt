@@ -1,0 +1,25 @@
+从磁盘缓存中读取
+
+Glide                 UIL                    Fresco                    Volley                     Picasso
+116.31697899999999    193.242135             206.966789999998          238.47651                  438.116093
+141.289636            193.359115             202.142135                249.72849                  395.211667
+119.132083            169.676354             200.751927                259.029322                 394.754479
+135.717865            174.66843699999998     200.80875                 258.61213599999996         424.039271
+131.367187            208.446459             236.102136                302.338229                 453.08088499999997
+113.213386            230.431094             190.200312                247.343958                 380.21005199999996
+136.56599             194.738542m            212.1148299999998         238.27614599999998         400.79447899999997
+110.422292           216.815937              196.558907                266.892084                 421.416094
+134.062344           293.278229              194.264635                199.951406                 407.493229
+130.581614           206.91510399999999      196.699062                217.574062                 401.733125
+
+
+Glide > UIL > Fresco > Volley > Picasso
+Glide > UIL > Fresco > Volley > Picasso
+Glide > UIL > Fresco > Volley > Picasso
+Glide > UIL > Fresco > Volley > Picasso
+Glide > UIL > Fresco > Volley > Picasso
+Glide > Fresco > UIL > Volley > Picasso
+Glide > UIL > Fresco > Volley > Picasso
+Glide > Fresco > UIL > Volley > Picasso
+Glide > Fresco > Volley > UIL > Picasso
+Glide > Fresco > UIL > Volley > Picasso
