@@ -12,3 +12,15 @@ Picasso                               Fresco                         Glide      
 1.5884889999999998                    2.405052                       4.650156                   113.47650999999999            183.473906
 0.718073                              0.9175                         10.599219                  126.212813                    154.1825
 0.692448                              0.88276                        2.92151                    224.03963499999998            245.95244799999998
+
+Picasso > Fresco > Glide > UIL > Volley
+Picasso > Fresco > Glide > UIL > Volley
+Picasso > Fresco > Glide > Volley > UIL
+Picasso > Fresco > Glide > UIL > Volley
+Picasso > Fresco > Glide > UIL > Volley
+Picasso > Fresco > Glide > UIL > Volley
+Picasso > Fresco > Glide > Volley > UIL
+Fresco > Picasso > Glide > UIL > Volley
+Picasso > Fresco > Glide > UIL > Volley
+Picasso > Fresco > Glide > UIL > Volley
+Picasso > Fresco > Glide > UIL > Volley
