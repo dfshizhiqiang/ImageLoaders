@@ -81,26 +81,10 @@ public class MainActivity extends AppCompatActivity {
         int page = p.getInt("page");
 
         new APIClient().getService().getRxMeizhi(5, page)
-                .map(new Func1<MeizhiEntity, List<MeizhiEntity.ResultsEntity>>() {
-                    @Override
-                    public List<MeizhiEntity.ResultsEntity> call(MeizhiEntity meizhiEntity) {
-                        return meizhiEntity.getResults();
-                    }
-                })
-                .flatMap(new Func1<List<MeizhiEntity.ResultsEntity>, Observable<MeizhiEntity.ResultsEntity>>() {
-
-                    @Override
-                    public Observable<MeizhiEntity.ResultsEntity> call(List<MeizhiEntity.ResultsEntity> resultsEntities) {
-                        return Observable.from(resultsEntities);
-                    }
-                })
+                .map(MeizhiEntity::getResults)
+                .flatMap(Observable::from)
                 .first()
-                .map(new Func1<MeizhiEntity.ResultsEntity, String>() {
-                    @Override
-                    public String call(MeizhiEntity.ResultsEntity resultsEntity) {
-                        return resultsEntity.getUrl();
-                    }
-                })
+                .map(MeizhiEntity.ResultsEntity::getUrl)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Subscriber<String>() {
@@ -243,11 +227,8 @@ public class MainActivity extends AppCompatActivity {
     private void showMeizhiDialog() {
         new AlertDialog.Builder(this)
                 .setTitle("选个你喜欢的妹子把~")
-                .setItems(R.array.array_meizhi, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        saveWhichMeizhi(which + 1);
-                    }
+                .setItems(R.array.array_meizhi, (dialog, which) -> {
+                    saveWhichMeizhi(which + 1);
                 })
                 .show();
     }
