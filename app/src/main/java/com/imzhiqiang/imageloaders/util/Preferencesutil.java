@@ -25,4 +25,14 @@ public class PreferencesUtil {
         editor.putInt(key, value);
         editor.apply();
     }
+
+    public String getString(String key) {
+        return mSharedPreferences.getString(key, "");
+    }
+
+    public void saveString(String key, String value) {
+        SharedPreferences.Editor editor = mSharedPreferences.edit();
+        editor.putString(key, value);
+        editor.apply();
+    }
 }

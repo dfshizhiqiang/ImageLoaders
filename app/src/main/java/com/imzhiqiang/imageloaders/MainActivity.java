@@ -1,17 +1,20 @@
 package com.imzhiqiang.imageloaders;
 
-import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Animatable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
@@ -36,14 +39,11 @@ import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
-import java.util.List;
-
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import rx.Observable;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
-import rx.functions.Func1;
 import rx.schedulers.Schedulers;
 
 public class MainActivity extends AppCompatActivity {
@@ -69,6 +69,17 @@ public class MainActivity extends AppCompatActivity {
     long startTimeFresco;
     long startTimeGlide;
 
+    @Bind(R.id.text_uil)
+    TextView textUil;
+    @Bind(R.id.text_picasso)
+    TextView textPicasso;
+    @Bind(R.id.text_volley)
+    TextView textVolley;
+    @Bind(R.id.text_fresco)
+    TextView textFresco;
+    @Bind(R.id.text_glide)
+    TextView textGlide;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,45 +90,74 @@ public class MainActivity extends AppCompatActivity {
         p = new PreferencesUtil(this);
 
         int page = p.getInt("page");
+        String customUrl = p.getString("custom_url");
+        if (TextUtils.isEmpty(customUrl)) {
+            new APIClient().getService().getRxMeizhi(5, page)
+                    .map(MeizhiEntity::getResults)
+                    .flatMap(Observable::from)
+                    .first()
+                    .map(MeizhiEntity.ResultsEntity::getUrl)
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(new Subscriber<String>() {
+                        @Override
+                        public void onCompleted() {
 
-        new APIClient().getService().getRxMeizhi(5, page)
-                .map(MeizhiEntity::getResults)
-                .flatMap(Observable::from)
-                .first()
-                .map(MeizhiEntity.ResultsEntity::getUrl)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Subscriber<String>() {
-                    @Override
-                    public void onCompleted() {
+                        }
 
-                    }
+                        @Override
+                        public void onError(Throwable e) {
+                            e.printStackTrace();
+                        }
 
-                    @Override
-                    public void onError(Throwable e) {
-                        e.printStackTrace();
-                    }
+                        @Override
+                        public void onNext(String s) {
+                            uri = s;
+                            Log.d(TAG, "onNext: url----->" + uri);
+                            loadAll();
+                        }
+                    });
+        } else {
+            Observable.just(customUrl)
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(new Subscriber<String>() {
+                        @Override
+                        public void onCompleted() {
 
-                    @Override
-                    public void onNext(String s) {
-                        uri = s;
-                        Log.d(TAG, "onNext: url----->" + uri);
-                        startTimeUIL = LogTime.getLogTime();
-                        loadByUIL(uri);
-                        startTimePicasso = LogTime.getLogTime();
-                        loadByPicasso(uri);
-                        startTimeVolley = LogTime.getLogTime();
-                        loadByVolley(uri);
-                        startTimeFresco = LogTime.getLogTime();
-                        loadByFresco(uri);
-                        startTimeGlide = LogTime.getLogTime();
-                        loadByGlide(uri);
-                    }
-                });
+                        }
+
+                        @Override
+                        public void onError(Throwable e) {
+                            e.printStackTrace();
+                        }
+
+                        @Override
+                        public void onNext(String s) {
+                            uri = s;
+                            Log.d(TAG, "onNext: url----->" + uri);
+                            loadAll();
+                        }
+                    });
+        }
+
+
+    }
+
+    private void loadAll() {
+        startTimeUIL = LogTime.getLogTime();
+        loadByUIL(uri);
+        startTimePicasso = LogTime.getLogTime();
+        loadByPicasso(uri);
+        startTimeVolley = LogTime.getLogTime();
+        loadByVolley(uri);
+        startTimeFresco = LogTime.getLogTime();
+        loadByFresco(uri);
+        startTimeGlide = LogTime.getLogTime();
+        loadByGlide(uri);
     }
 
     private void loadByGlide(String url) {
-        Glide.with(this).load(url).listener(new RequestListener<String, GlideDrawable>() {
+        Glide.with(this).load(url).centerCrop().listener(new RequestListener<String, GlideDrawable>() {
             @Override
             public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {
                 return false;
@@ -126,6 +166,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onResourceReady(GlideDrawable resource, String model, Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
                 Log.d(TAG, "Glide----->onResourceReady: " + LogTime.getElapsedMillis(startTimeGlide) + "ms");
+                textGlide.setText("Glide加载时间为" + LogTime.getElapsedMillis(startTimeGlide) + "ms");
                 return false;
             }
         }).into(imgGlide);
@@ -138,6 +179,7 @@ public class MainActivity extends AppCompatActivity {
             public void onFinalImageSet(String id, ImageInfo imageInfo, Animatable animatable) {
                 super.onFinalImageSet(id, imageInfo, animatable);
                 Log.d(TAG, "Fresco----->onFinalImageSet: " + LogTime.getElapsedMillis(startTimeFresco) + "ms");
+                textFresco.setText("Fresco加载时间为" + LogTime.getElapsedMillis(startTimeFresco) + "ms");
             }
         };
         DraweeController controller = Fresco.newDraweeControllerBuilder()
@@ -160,6 +202,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onSuccess() {
                 Log.d(TAG, "Volley----->onSuccess: " + LogTime.getElapsedMillis(startTimeVolley) + "ms");
+                textVolley.setText("Volley加载时间为" + LogTime.getElapsedMillis(startTimeVolley) + "ms");
             }
         });
     }
@@ -169,6 +212,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onSuccess() {
                 Log.d(TAG, "Picasso----->onSuccess: " + LogTime.getElapsedMillis(startTimePicasso) + "ms");
+                textPicasso.setText("Picasso加载时间为" + LogTime.getElapsedMillis(startTimePicasso) + "ms");
             }
 
             @Override
@@ -192,6 +236,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
                 Log.d(TAG, "UIL----->onLoadingComplete:" + LogTime.getElapsedMillis(startTimeUIL) + "ms");
+                textUil.setText("UIL加载时间为" + LogTime.getElapsedMillis(startTimeUIL) + "ms");
             }
 
             @Override
@@ -239,10 +284,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showCustomUrlDialog() {
-
+        View dialogView = getLayoutInflater().inflate(R.layout.dialog_custom_url, null);
+        EditText input = (EditText) dialogView.findViewById(R.id.et_custom_url);
+        new AlertDialog.Builder(this)
+                .setTitle("输入你喜欢的妹子地址~")
+                .setView(dialogView)
+                .setCancelable(true)
+                .setPositiveButton("确定", (dialog, which) -> {
+                    String value = input.getText().toString().trim();
+                    p.saveString("custom_url", value);
+                    Toast.makeText(MainActivity.this, "保存成功", Toast.LENGTH_SHORT).show();
+                })
+                .show();
     }
 
     private void startAboutActivity() {
-
+        startActivity(new Intent().setClass(this, AboutActivity.class));
     }
 }
