@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.Animatable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
@@ -285,7 +286,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void saveWhichMeizhi(int which) {
         p.saveInt("page", which);
-        Toast.makeText(MainActivity.this, "您已选择" + which + "号妹子,下次她将为您服务", Toast.LENGTH_SHORT).show();
+        Snackbar.make(getWindow().getDecorView(), "您已选择" + which + "号妹子,下次她将为您服务", Snackbar.LENGTH_LONG)
+                .setAction("朕知道了", v -> finish())
+                .show();
     }
 
     private void showCustomUrlDialog() {

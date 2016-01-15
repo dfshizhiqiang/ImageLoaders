@@ -1,8 +1,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.imzhiqiang.imageloaders.MainActivity">
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context="com.imzhiqiang.imageloaders.MainActivity">
 
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -22,16 +22,13 @@
                     android:id="@+id/img_uil"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:scaleType="centerCrop" />
+                    android:scaleType="centerCrop"/>
 
                 <TextView
                     android:id="@+id/text_uil"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
+                    style="@style/normal_text_style"
                     android:text="UIL"
-                    android:textIsSelectable="true"
-                    android:textSize="16sp" />
+                    tools:ignore="HardcodedText"/>
             </LinearLayout>
 
             <LinearLayout
@@ -43,16 +40,13 @@
                     android:id="@+id/img_picasso"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:scaleType="centerCrop" />
+                    android:scaleType="centerCrop"/>
 
                 <TextView
                     android:id="@+id/text_picasso"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
+                    style="@style/normal_text_style"
                     android:text="Picasso"
-                    android:textIsSelectable="true"
-                    android:textSize="16sp" />
+                    tools:ignore="HardcodedText"/>
             </LinearLayout>
 
             <LinearLayout
@@ -64,16 +58,13 @@
                     android:id="@+id/img_volley"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:scaleType="centerCrop" />
+                    android:scaleType="centerCrop"/>
 
                 <TextView
                     android:id="@+id/text_volley"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
+                    style="@style/normal_text_style"
                     android:text="Volley"
-                    android:textIsSelectable="true"
-                    android:textSize="16sp" />
+                    tools:ignore="HardcodedText"/>
             </LinearLayout>
 
             <LinearLayout
@@ -84,16 +75,13 @@
                 <com.facebook.drawee.view.SimpleDraweeView
                     android:id="@+id/img_fresco"
                     android:layout_width="100dp"
-                    android:layout_height="100dp" />
+                    android:layout_height="100dp"/>
 
                 <TextView
                     android:id="@+id/text_fresco"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
+                    style="@style/normal_text_style"
                     android:text="Fresco"
-                    android:textIsSelectable="true"
-                    android:textSize="16sp" />
+                    tools:ignore="HardcodedText"/>
             </LinearLayout>
 
             <LinearLayout
@@ -104,16 +92,13 @@
                 <ImageView
                     android:id="@+id/img_glide"
                     android:layout_width="100dp"
-                    android:layout_height="100dp" />
+                    android:layout_height="100dp"/>
 
                 <TextView
                     android:id="@+id/text_glide"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
+                    style="@style/normal_text_style"
                     android:text="Glide"
-                    android:textIsSelectable="true"
-                    android:textSize="16sp" />
+                    tools:ignore="HardcodedText"/>
             </LinearLayout>
 
         </LinearLayout>
