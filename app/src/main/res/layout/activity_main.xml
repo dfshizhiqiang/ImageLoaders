@@ -30,6 +30,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="UIL"
+                    android:textIsSelectable="true"
                     android:textSize="16sp" />
             </LinearLayout>
 
@@ -50,6 +51,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="Picasso"
+                    android:textIsSelectable="true"
                     android:textSize="16sp" />
             </LinearLayout>
 
@@ -70,6 +72,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="Volley"
+                    android:textIsSelectable="true"
                     android:textSize="16sp" />
             </LinearLayout>
 
@@ -89,6 +92,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="Fresco"
+                    android:textIsSelectable="true"
                     android:textSize="16sp" />
             </LinearLayout>
 
@@ -108,6 +112,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="Glide"
+                    android:textIsSelectable="true"
                     android:textSize="16sp" />
             </LinearLayout>
 

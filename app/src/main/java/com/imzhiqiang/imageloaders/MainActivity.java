@@ -46,7 +46,7 @@ import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     private static final String TAG = "MainActivity";
     String uri = "http://ww1.sinaimg.cn/large/7a8aed7bjw1ez9bkpuvipj20dw0kutb9.jpg";
 
@@ -140,6 +140,11 @@ public class MainActivity extends AppCompatActivity {
                     });
         }
 
+        imgUIL.setOnClickListener(this);
+        imgVolley.setOnClickListener(this);
+        imgPicasso.setOnClickListener(this);
+        imgFresco.setOnClickListener(this);
+        imgGlide.setOnClickListener(this);
 
     }
 
@@ -300,5 +305,10 @@ public class MainActivity extends AppCompatActivity {
 
     private void startAboutActivity() {
         startActivity(new Intent().setClass(this, AboutActivity.class));
+    }
+
+    @Override
+    public void onClick(View v) {
+        startActivity(new Intent().setClass(this,PhotoActivity.class).putExtra("url",uri));
     }
 }
