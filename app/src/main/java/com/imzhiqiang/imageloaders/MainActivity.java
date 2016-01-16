@@ -40,6 +40,8 @@ import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
+import java.util.Locale;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import rx.Observable;
@@ -171,6 +173,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             @Override
             public boolean onResourceReady(GlideDrawable resource, String model, Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
+                android.util.Log.d("GLIDE", String.format(Locale.ROOT,
+                        "onResourceReady(%s, %s, %s, %s, %s)", resource, model, target, isFromMemoryCache, isFirstResource));
                 Log.d(TAG, "Glide----->onResourceReady: " + LogTime.getElapsedMillis(startTimeGlide) + "ms");
                 textGlide.setText("Glide加载时间为" + LogTime.getElapsedMillis(startTimeGlide) + "ms");
                 return false;
@@ -214,7 +218,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void loadByPicasso(String url) {
-        Picasso.with(this).load(url).into(imgPicasso, new Callback() {
+        Picasso picasso = Picasso.with(this);
+        picasso.setLoggingEnabled(true);
+        picasso.setIndicatorsEnabled(true);
+        picasso.load(url).into(imgPicasso, new Callback() {
             @Override
             public void onSuccess() {
                 Log.d(TAG, "Picasso----->onSuccess: " + LogTime.getElapsedMillis(startTimePicasso) + "ms");

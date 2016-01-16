@@ -4,8 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.target.Target;
-import com.squareup.picasso.Picasso;
+import com.bumptech.glide.load.DecodeFormat;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -26,6 +25,8 @@ public class PhotoActivity extends AppCompatActivity {
         url = getIntent().getStringExtra("url");
         Glide.with(this)
                 .load(url)
+                .asBitmap()
+                .format(DecodeFormat.PREFER_ARGB_8888)
                 .into(photo);
     }
 }
