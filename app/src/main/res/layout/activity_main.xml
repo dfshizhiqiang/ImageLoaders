@@ -1,12 +1,16 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:tools="http://schemas.android.com/tools"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                tools:context="com.imzhiqiang.imageloaders.MainActivity">
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.imzhiqiang.imageloaders.MainActivity">
+
+    <include layout="@layout/toolbar" />
 
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -20,15 +24,15 @@
 
                 <ImageView
                     android:id="@+id/img_uil"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:scaleType="centerCrop"/>
+                    android:layout_width="@dimen/img_size"
+                    android:layout_height="@dimen/img_size"
+                    android:scaleType="centerCrop" />
 
                 <TextView
                     android:id="@+id/text_uil"
                     style="@style/normal_text_style"
                     android:text="UIL"
-                    tools:ignore="HardcodedText"/>
+                    tools:ignore="HardcodedText" />
             </LinearLayout>
 
             <LinearLayout
@@ -38,15 +42,15 @@
 
                 <ImageView
                     android:id="@+id/img_picasso"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:scaleType="centerCrop"/>
+                    android:layout_width="@dimen/img_size"
+                    android:layout_height="@dimen/img_size"
+                    android:scaleType="centerCrop" />
 
                 <TextView
                     android:id="@+id/text_picasso"
                     style="@style/normal_text_style"
                     android:text="Picasso"
-                    tools:ignore="HardcodedText"/>
+                    tools:ignore="HardcodedText" />
             </LinearLayout>
 
             <LinearLayout
@@ -56,15 +60,15 @@
 
                 <com.imzhiqiang.imageloaders.widget.VolleyImageView
                     android:id="@+id/img_volley"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:scaleType="centerCrop"/>
+                    android:layout_width="@dimen/img_size"
+                    android:layout_height="@dimen/img_size"
+                    android:scaleType="centerCrop" />
 
                 <TextView
                     android:id="@+id/text_volley"
                     style="@style/normal_text_style"
                     android:text="Volley"
-                    tools:ignore="HardcodedText"/>
+                    tools:ignore="HardcodedText" />
             </LinearLayout>
 
             <LinearLayout
@@ -74,14 +78,14 @@
 
                 <com.facebook.drawee.view.SimpleDraweeView
                     android:id="@+id/img_fresco"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"/>
+                    android:layout_width="@dimen/img_size"
+                    android:layout_height="@dimen/img_size" />
 
                 <TextView
                     android:id="@+id/text_fresco"
                     style="@style/normal_text_style"
                     android:text="Fresco"
-                    tools:ignore="HardcodedText"/>
+                    tools:ignore="HardcodedText" />
             </LinearLayout>
 
             <LinearLayout
@@ -91,16 +95,17 @@
 
                 <ImageView
                     android:id="@+id/img_glide"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"/>
+                    android:layout_width="@dimen/img_size"
+                    android:layout_height="@dimen/img_size" />
 
                 <TextView
                     android:id="@+id/text_glide"
                     style="@style/normal_text_style"
                     android:text="Glide"
-                    tools:ignore="HardcodedText"/>
+                    tools:ignore="HardcodedText" />
             </LinearLayout>
 
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
-</RelativeLayout>
+
+</android.support.design.widget.CoordinatorLayout>

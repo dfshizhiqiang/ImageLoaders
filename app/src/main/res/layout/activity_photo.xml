@@ -5,8 +5,11 @@
     android:layout_height="match_parent"
     tools:context="com.imzhiqiang.imageloaders.PhotoActivity">
 
-    <it.sephiroth.android.library.imagezoom.ImageViewTouch
+    <include layout="@layout/toolbar"/>
+
+    <com.imzhiqiang.imageloaders.widget.TouchImageView
         android:id="@+id/photo"
+        android:layout_centerInParent="true"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

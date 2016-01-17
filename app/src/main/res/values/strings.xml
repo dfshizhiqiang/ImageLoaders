@@ -17,4 +17,6 @@
         <item>9号</item>
         <item>10号</item>
     </array>
+
+    <string name="text_load_time">%1$s加载时间为%2$sms</string>
 </resources>

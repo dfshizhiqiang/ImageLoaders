@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.Menu;
@@ -47,7 +48,7 @@ import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private static final String TAG = "MainActivity";
     String uri = "http://ww1.sinaimg.cn/large/7a8aed7bjw1ez9bkpuvipj20dw0kutb9.jpg";
 
@@ -87,6 +88,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         p = new PreferencesUtil(this);
 
@@ -172,7 +176,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public boolean onResourceReady(GlideDrawable resource, String model, Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
                 Log.d(TAG, "Glide----->onResourceReady: " + LogTime.getElapsedMillis(startTimeGlide) + "ms");
-                textGlide.setText("Glide加载时间为" + LogTime.getElapsedMillis(startTimeGlide) + "ms");
+                textGlide.setText(getString(R.string.text_load_time, "Glide", String.format("%.6f", LogTime.getElapsedMillis(startTimeGlide))));
                 return false;
             }
         }).into(imgGlide);
@@ -185,7 +189,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onFinalImageSet(String id, ImageInfo imageInfo, Animatable animatable) {
                 super.onFinalImageSet(id, imageInfo, animatable);
                 Log.d(TAG, "Fresco----->onFinalImageSet: " + LogTime.getElapsedMillis(startTimeFresco) + "ms");
-                textFresco.setText("Fresco加载时间为" + LogTime.getElapsedMillis(startTimeFresco) + "ms");
+                textFresco.setText(getString(R.string.text_load_time, "Fresco", String.format("%.6f", LogTime.getElapsedMillis(startTimeFresco))));
+
             }
         };
         DraweeController controller = Fresco.newDraweeControllerBuilder()
@@ -208,7 +213,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onSuccess() {
                 Log.d(TAG, "Volley----->onSuccess: " + LogTime.getElapsedMillis(startTimeVolley) + "ms");
-                textVolley.setText("Volley加载时间为" + LogTime.getElapsedMillis(startTimeVolley) + "ms");
+                textVolley.setText(getString(R.string.text_load_time, "Volley", String.format("%.6f", LogTime.getElapsedMillis(startTimeVolley))));
             }
         });
     }
@@ -218,7 +223,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onSuccess() {
                 Log.d(TAG, "Picasso----->onSuccess: " + LogTime.getElapsedMillis(startTimePicasso) + "ms");
-                textPicasso.setText("Picasso加载时间为" + LogTime.getElapsedMillis(startTimePicasso) + "ms");
+                textPicasso.setText(getString(R.string.text_load_time, "Picasso", String.format("%.6f", LogTime.getElapsedMillis(startTimePicasso))));
             }
 
             @Override
@@ -242,7 +247,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
                 Log.d(TAG, "UIL----->onLoadingComplete:" + LogTime.getElapsedMillis(startTimeUIL) + "ms");
-                textUil.setText("UIL加载时间为" + LogTime.getElapsedMillis(startTimeUIL) + "ms");
+                textUil.setText(getString(R.string.text_load_time, "UIL", String.format("%.6f", LogTime.getElapsedMillis(startTimeUIL))));
             }
 
             @Override
@@ -312,6 +317,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        startActivity(new Intent().setClass(this,PhotoActivity.class).putExtra("url",uri));
+        startActivity(new Intent().setClass(this, PhotoActivity.class).putExtra("url", uri));
     }
 }
